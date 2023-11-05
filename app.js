@@ -26,10 +26,13 @@ app.use(
     legacyHeaders: false,
   })
 );
+
 app.use(helmet());
 app.use(cors());
 app.use(xss());
 app.use(express.json());
+
+app.set("trust proxy", 1);
 
 app.use(express.static(path.resolve(__dirname, "./client/build")));
 
